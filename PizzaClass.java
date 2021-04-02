@@ -4,11 +4,11 @@ public class PizzaClass {
 
     public static final int MAX_SIZE_PIZZA = 52;    //Максимальный размер пиццы
     private int sizePizza;                   //Размер заказанной пицы
-    private String addInPizza;              //Пожелания по добавкам
+    private StringBuilder addInPizza;              //Пожелания по добавкам
 
-    public PizzaClass(int sizePizza, String addInPizza) {
+    public PizzaClass(int sizePizza, StringBuilder additions) {
         this.sizePizza = sizePizza;
-        this.addInPizza = addInPizza;
+        this.addInPizza = additions;
     }
 
 
@@ -17,6 +17,6 @@ public class PizzaClass {
     }
 
     public String getAddInPizza() {
-        return addInPizza;
+        return addInPizza.toString();
     }
 }
