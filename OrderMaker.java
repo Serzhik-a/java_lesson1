@@ -7,14 +7,14 @@ import java.util.Scanner;
 public class OrderMaker {
     public static void makeOrder() {
         int orderPizzaSize;                                    //храним размер пицы до размещения в заказ
-        StringBuffer additions;                                    //добавки пожелания
+        StringBuilder additions;                                    //добавки пожелания
         Scanner scanner = new Scanner(System.in);           //объект для чтения из консоли
         int orderNumber = 0;                                //переменная номера заказа
         List<PizzaClass> pizzaList = new ArrayList<>();     //массив объектов pizza / заказов
 
         while (true) {
             System.out.print("Do you wanna some pizza? да/нет: ");           // Опрос перед заказом
-            StringBuffer answer = new StringBuffer(scanner.nextLine());                        //читаем ответ
+            StringBuilder answer = new StringBuilder(scanner.nextLine());                        //читаем ответ
             switch (answer.toString().toLowerCase()) {                            //проверка с исправлением регистра
                 case ("да"): {
                     System.out.println("Let`s make an order...");
@@ -22,9 +22,10 @@ public class OrderMaker {
 
                         System.out.print("What size of pizza do you want? (max size is " + PizzaClass.MAX_SIZE_PIZZA + "): ");
                         orderPizzaSize = scanner.nextInt();
+                        scanner.skip("\n");
                         if (orderPizzaSize <= PizzaClass.MAX_SIZE_PIZZA) {           //проверка размера
-                            System.out.print("May be some additions? If no - leave the blank: ");
-                            additions = new StringBuffer(scanner.nextLine());
+                            System.out.print("May be some additions? : ");
+                            additions = new StringBuilder(scanner.nextLine());
                             if (additions.length() == 0) {
                                 additions.append("no");
                             }
