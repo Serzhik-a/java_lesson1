@@ -49,7 +49,11 @@ public class Orders {
         System.out.println("Let`s make an order...");
         while (true) {                                              //уточняем детали в цикле
             System.out.print("What size of pizza do you want? (max size is " + PizzaClass.MAX_SIZE_PIZZA + "): ");
-
+            if (!scanner.hasNextInt()) {
+                System.out.println("Incorrect input. Need the number.");
+                scanner.skip(".*\n");
+                continue;
+            }
             orderPizzaSize = scanner.nextInt();
             scanner.skip("\n");                                           // nextInt не удаляет символ конца строки, поэтому делаем это вручную
             if (orderPizzaSize <= PizzaClass.MAX_SIZE_PIZZA) {           //проверка размера
